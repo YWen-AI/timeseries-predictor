@@ -1,0 +1,29 @@
+[tool.poetry]
+name = "bikesharing-timeseries-predictor"
+version = "0.1.0"
+description = "Time series model training and prediction for bike sharing"
+authors = ["Yiwen Wen <ywendsml@gmail.com>"]
+license = "MIT"
+readme = "README.md"
+packages = [{include = "bike_sharing_timeseries_predictor"}]
+
+[tool.poetry.dependencies]
+python = ">=3.9,<3.13"
+pandas = "^2.2"
+numpy = "^1.26"
+scikit-learn = "^1.4"
+matplotlib = "^3.8"
+seaborn = "^0.13"
+statsmodels = "^0.14"
+xgboost = "^2.0"
+
+[tool.poetry.dev-dependencies]
+jupyter = "^1.0"
+ipykernel = "^6.29"
+pytest = "^8.0"
+black = "^24.3"
+mypy = "^1.8"
+
+[build-system]
+requires = ["poetry-core>=1.8.0"]
+build-backend = "poetry.core.masonry.api"

@@ -1,0 +1,62 @@
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Distribution / packaging
+build/
+dist/
+*.egg-info/
+
+# Virtual environments
+.venv/
+venv/
+ENV/
+env/
+.env
+.env.*
+
+# Jupyter Notebook checkpoints
+.ipynb_checkpoints/
+
+# Pytest cache
+.pytest_cache/
+.cache/
+
+# VSCode
+.vscode/
+
+# mypy
+.mypy_cache/
+
+# Logs and outputs
+*.log
+logs/
+outputs/
+results/
+
+# OS-specific
+.DS_Store
+Thumbs.db
+
+# Other common data science/project files
+*.csv
+*.tsv
+*.parquet
+*.h5
+*.pkl
+*.joblib
+*.npy
+*.npz
+
+# Temporary files
+*.tmp
+*.bak
+
+# Data
+data/
+
+# Documents
+*.pdf
+*.pages
+*.zip
