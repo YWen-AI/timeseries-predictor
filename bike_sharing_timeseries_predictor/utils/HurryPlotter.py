@@ -101,9 +101,11 @@ if __name__ == '__main__':
 
     # Initialization of HurryPlotter
     plotter = HurryPlotter(df)
-    #plotter.plot(x='dteday', y='cnt', title='Time Series Plot of Bike Rentals', x_label='Time', y_label='Number of Bike Rentals',resample='Q')
+
+    # Plotting
+    plotter.plot(x='dteday', y='cnt', title='Time Series Plot of Bike Rentals', x_label='Time', y_label='Number of Bike Rentals',resample='M')
     #plotter.plot(x='season', y='cnt', groupby='season', title='Total Bike Rentals by Season', x_label='Season', y_label='Total Number of Bike Rentals', show_statistics=True)
     #plotter.plot(x='temp', y='cnt', groupby='temp', title='Temperature Rental', x_label='Temperature', y_label='Total Number of Bike Rentals')
-    plotter.plot(x='season', y='cnt', groupby='season', filter_condition='yr==1', title='Total Bike Rentals by Season', x_label='Season', y_label='Total Number of Bike Rentals', show_statistics=True)
+    #plotter.plot(x='season', y='cnt', groupby='season', filter_condition='yr==1', title='Total Bike Rentals by Season', x_label='Season', y_label='Total Number of Bike Rentals', show_statistics=True)
 
 

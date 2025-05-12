@@ -36,29 +36,30 @@ class GeneralizedNeuralNetwork:
             activations.append(activation)
         return activations
 
-    def backward_pass(self, X, y_true, y_pred, activations):
-        m = y_true.shape[0]
+    def backward_pass(self, y_true, y_pred, activations):
+        m = y_true.shape[0] # Number of samples
+
+        # Derivative of MAE loss w.r.t. predictions
         d_loss_y_pred = np.sign(y_pred - y_true) / m
         
+        # Gradient of loss w.r.t. last layer's activation
         grads = [d_loss_y_pred * self.relu_derivative(activations[-1])]
         
         # Loop over the layers in reverse order for backward propation
+        # If not the first layer, compute gradient for the previous layer
         for i in reversed(range(len(self.weights))):
             d_activation = grads[-1]
             if i > 0:
                 d_activation_prev_layer = np.dot(d_activation, self.weights[i].T) * self.relu_derivative(activations[i])
                 grads.append(d_activation_prev_layer)
 
-            # Compute gradients for current layer
+            # Compute gradient w.r.t. weights and biases
             d_loss_weights = np.dot(activations[i].T, d_activation)
             d_loss_biases = np.sum(d_activation, axis=0, keepdims=True)
 
             # Update weights and biases
             self.weights[i] -= self.learning_rate * d_loss_weights
             self.biases[i] -= self.learning_rate * d_loss_biases
-
-        # Reverse the grads to match the order of layers
-        grads.reverse()
 
     def train(self, X, y_true, epochs, learning_rate):
         self.learning_rate = learning_rate
@@ -72,7 +73,7 @@ class GeneralizedNeuralNetwork:
             loss = self.mae_loss(y_true, y_pred)
             
             # Backward pass
-            self.backward_pass(X, y_true, y_pred, activations)
+            self.backward_pass(y_true, y_pred, activations)
             
             # Output the loss 
             if (epoch + 1) % 1000 == 0:
